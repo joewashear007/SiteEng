@@ -1,0 +1,88 @@
+@font-face  {font-family: atrox;  src: url('../fonts/ATROX.TTF'); font-stretch: extra-expanded;  }
+body {
+    background-color: grey;
+    padding-bottom: 10px;
+    color: #001E64;
+}
+
+.navbar {
+    font-family:atrox; 
+    color: black;
+    border: none;
+    background: rgb(0,0,50);
+    background: -moz-linear-gradient(top,  rgba(0,0,50,1) 75%, rgba(0,25,100,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(75%,rgba(0,0,50,1)), color-stop(100%,rgba(0,25,100,1)));
+    background: -webkit-linear-gradient(top,  rgba(0,0,50,1) 75%,rgba(0,25,100,1) 100%);
+    background: -o-linear-gradient(top,  rgba(0,0,50,1) 75%,rgba(0,25,100,1) 100%);
+    background: -ms-linear-gradient(top,  rgba(0,0,50,1) 75%,rgba(0,25,100,1) 100%);
+    background: linear-gradient(to bottom,  rgba(0,0,50,1) 75%,rgba(0,25,100,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000032', endColorstr='#001964',GradientType=0 );
+
+}
+.navbar-nav > li > a {
+    color: rgb(0,255,100);
+}
+
+/* Sections  */
+section{
+    padding : 20px;
+    
+}
+.panel-title {
+    font-family:atrox; 
+    
+}
+.page-header {
+    background-color: rgba(200,200,200, 0.5);
+    border: none;
+    padding-left: 10px;
+    box-shadow: 5px 5px 5px #333;
+}
+.page-header > h2{
+    font-size: 2.0em;
+    font-family: atrox;
+}
+.panel {
+    box-shadow: 5px 5px 5px #333;
+    
+}
+/* ------------------------------- SECTIONS --------------------------------- */
+#section-1{
+    background-image: url('../img/checker.gif');
+    background-repeat:repeat;
+    background-position:center;
+    background-color: black;
+}
+
+#section-1 > header {
+    display:none;
+}
+
+#section-2{
+    background-image: url('../img/wood.jpg');
+    background-repeat:repeat;
+    /* background-attachment:fixed; */
+    background-position:center;
+    background-color: black;
+}
+#section-3{
+    background-image: url('../img/metal.jpg');
+    background-repeat:repeat;
+    /* background-attachment:fixed; */
+    background-position:center;
+    background-color: black;
+}
+#section-4{
+    background-image: url('../img/checker.gif');
+    background-repeat:repeat;
+    /* background-attachment:fixed; */
+    background-position:center;
+    background-color: black;
+}
+
+
+#article-6-text > img{
+    width: 100%;
+    
+}
+
