@@ -21,11 +21,23 @@ class SectionsController extends AppController {
         }
         $this->set('editmode', $this->Auth->loggedIn() );
     }
-    public function panels(){
-        $this->layout = 'ajax';
-        $sec = $this->Section->find('all', array('order' => array('order' => 'asc')));
-        $this->set('sections', $sec);
+    
+    public function editsite(){
+        $this->layout = 'siteeng';
+        if( ! $this->Auth->loggedIn()){
+            return $this->redirect(
+                array('controller' => 'sections', 'action' => 'index')
+            );
+        }
+
+        if ($this->request->is(array('post', 'put'))) {
+            $this->set('data', $this->request->data);
+            Configure::write($this->request->data);
+            Configure::dump("SiteEng");
+            return $this->redirect(array('action' => 'index'));
+        }        
     }
+    
 	public function edit($id = null) {
         $this->layout = 'ajax';
         

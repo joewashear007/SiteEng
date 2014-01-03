@@ -31,6 +31,7 @@ $this->Js->get('#msgbox-close')->event('click', $event);
         <?php if(Configure::read('SiteEng.Run.Edit') ): ?>
             <ul class="nav navbar-nav navbar-right">
                 <li><?php echo $this->Html->link("Save", array('controller' => 'users', 'action' => 'logout'), array( "class" => "glyphicon glyphicon-floppy-disk")); ?></li>
+                <li><?php echo $this->Html->link("Edit Site", array('controller' => 'sections', 'action' => 'editsite'), array( "class" => "glyphicon glyphicon-pencil")); ?></li>
             </ul>
         <?php else: ?>
             <ul class="nav navbar-nav navbar-right">
