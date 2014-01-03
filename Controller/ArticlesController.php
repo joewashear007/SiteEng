@@ -41,7 +41,7 @@ class ArticlesController extends AppController {
 			$this->set('success', "<strong>SUCCES!</strong> The article was deleted");
 		}
 	}
-	public function add($section-id) {
+	public function add($sectionId) {
         if ($this->request->is('post')) {
             $this->Article->create();
 			$this->Article->set('section-id' , $section-id);

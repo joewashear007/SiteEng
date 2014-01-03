@@ -1,27 +1,9 @@
 Aloha.ready( function() {
-    Aloha.jQuery('.editable').aloha();
-    var request = jQuery.ajax({
-        url: SiteEng.panelsAction,
-        type: "post",   
-    }).done(function(data) {
-        var panels = JSON.parse(data);
-        for (var key in panels) {
-          if (panels.hasOwnProperty(key)) {
-            console.log(key + " -> " + p[key]);
-            var panel = Aloha.Sidebar.right.addPanel({
-                id       : p[key].id,
-                title    : p[key].Title,
-                content  : p[key].Content,
-                expanded : false
-            });
-          }
-        }
-    }).fail(function(data) {
-        jQuery("#msgbox-text").html("Failed to load panel data");
-        jQuery("#msgbox").removeClass().addClass("alert alert-danger");
-        jQuery("#msgbox").slideDown();
+    Aloha.jQuery('.editable').aloha();  
+    Aloha.bind('aloha-editable-deactivated', function(){
+        Save(Aloha.activeEditable.obj[0].id);
+        
     });
-    
 });
 /*
  ( function ( window, undefined ) {
@@ -115,15 +97,32 @@ Aloha.ready( function() {
 } )( window );
 */
  
-function Save(action, data){
-	// console.log("Action: " + window.app.action+"/"+id)
-    // var text = $("#article" + id +"-text").html();
-    // var title = $("#article" + id + "-title").html();
+function Save(editableId){
+    var idInfo = editableId.split("-");
+    var id = idInfo[1];
+    if(idInfo[0] == "section"){
+        var data = JSON.parse(SiteEng.SectionsFields);
+        var action = SiteEng.SectionEdit;   
+    }else{
+        var data = JSON.parse(SiteEng.ArticleFields);
+        var action = SiteEng.ArticleEdit;
+    }
+    //Get The JSON object and replace the id with the id number
+    //Do JQuery text with the object id
+    for (var key in data) {
+      if (data.hasOwnProperty(key)) {
+        if(key == "id"){
+            data[key] = id;
+        }else{
+            var idstr = data[key].replace("id", id);
+            data[key] = jQuery("#" + idstr).html();
+        }
+      }
+    }
     var request = jQuery.ajax({
-        //url: "/articles/edit/"+id,
-        url: action + "/" +data["id"],
+        url: action + "/" +id,
         type: "post",
-        data: data,   
+        data: jQuery.param(data),   
     }).done(function(data) {
         jQuery("#msgbox-text").html(data);
         jQuery("#msgbox").removeClass().addClass("alert alert-success");

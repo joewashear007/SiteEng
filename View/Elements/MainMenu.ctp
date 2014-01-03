@@ -1,18 +1,11 @@
-<!-- 
-
-var editmode as boolean
-
--->
-
 <?php 
 $sections = $this->requestAction('sections/index/');
 
 $event = $this->Js->get('#msgbox')->effect('fadeOut');
 $this->Js->get('#msgbox-close')->event('click', $event);
-
 ?>
 
-<div class="navbar navbar-inverse <?php Configure::read('SiteEng.Run.EditClass');  ?>" role="navigation">
+<div class="navbar navbar-inverse" role="navigation">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
@@ -20,7 +13,7 @@ $this->Js->get('#msgbox-close')->event('click', $event);
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Design & Do LLC</a>
+        <a class="navbar-brand" href="<?php echo Configure::read('SiteEng.Site.URL');  ?>"><?php echo Configure::read('SiteEng.Site.Title');  ?></a>
     </div>
     <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">

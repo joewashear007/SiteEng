@@ -15,7 +15,7 @@ class SectionsController extends AppController {
         $this->set('sections', $sec);
         Configure::write('SiteEng.Run.Edit', $this->Auth->loggedIn());
         if( $this->Auth->loggedIn()){
-            Configure::write('SiteEng.Run.EditClass', 'SiteEng.Site.EditClass');
+            Configure::write('SiteEng.Run.EditClass', Configure::read('SiteEng.Site.EditClass'));
         }else{
             Configure::write('SiteEng.Run.EditClass', '');
         }
