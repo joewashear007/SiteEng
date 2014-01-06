@@ -1,102 +1,25 @@
-Aloha.ready( function() {
-    Aloha.jQuery('.editable').aloha();  
-    Aloha.bind('aloha-editable-deactivated', function(){
-        Save(Aloha.activeEditable.obj[0].id);
-        
+raptor(function($){
+    $('.editable').raptor({
+        //preset : "full
+        unloadWarning: false,
+        autoEnable : true,
+        disabledPlugins: [ 
+            "statistics","hrCreate","textBlockQuote","insertFile","embed","logo","languageMenu","specialCharacters","dockToElement",
+            "textStrike", "textSub","textSuper","tagMenu","guides", "save", "unsavedEditWarning"],
+        plugins:{
+            dock:{docked:true},
+            classMenu:{classes:{'Blue background':'cms-blue-bg','Round corners':'cms-round-corners','Indent and center':'cms-indent-center'}},
+            snippetMenu:{snippets:{'Grey Box':'<div class="grey-box"><h1>Grey Box</h1><ul><li>This is a list</li></ul></div>'}}
+        },
     });
 });
-/*
- ( function ( window, undefined ) {
-	var Aloha = window.Aloha || ( window.Aloha = {} );
 
-	Aloha.settings = {
-		logLevels: { 'error': true, 'warn': true, 'info': true, 'debug': true, 'deprecated': true },
-		errorhandling: false,
-		locale: 'en',
-		plugins: {
-			format: {},
-			list: {
-				config: [ 'ul', 'ol' ],
-			},
-			abbr: {
-				config: [ 'abbr' ],
-			},
-			link: {
-				config: [ 'a' ],
-				hotKey: {
-					// use ctrl+l instead of ctrl+k as hotkey for inserting a link
-					//insertLink: 'ctrl+l'
-				},
-				cssclassregex: '*',
-				cssclass: 'button-sucess',
-				objectTypeFilter: ['website'],
-				// handle change of href
-				onHrefChange: function ( obj, href, item ) {
-					var jQuery = Aloha.require( 'jquery' );
-					if ( item ) {
-						jQuery( obj ).attr( 'data-name', item.name );
-					} else {
-						jQuery( obj ).removeAttr( 'data-name' );
-					}
-				}
-			},
-			table: {
-				config: [ 'table' ],
-				editables: {
-					// Don't allow tables in top-text
-					'#top-text': [ '' ]
-				},
-				summaryinsidebar: true,
-					// [{name:'green', text:'Green', tooltip:'Green is cool', iconClass:'GENTICS_table GENTICS_button_green', cssClass:'green'}]
-				tableConfig: [
-					{ name: 'hor-minimalist-a' },
-					{ name: 'box-table-a' },
-					{ name: 'hor-zebra' },
-				],
-				columnConfig: [
-					{ name: 'table-style-bigbold',  iconClass: 'aloha-button-col-bigbold' },
-					{ name: 'table-style-redwhite', iconClass: 'aloha-button-col-redwhite' }
-				],
-				rowConfig: [
-					{ name: 'table-style-bigbold',  iconClass: 'aloha-button-row-bigbold' },
-					{ name: 'table-style-redwhite', iconClass: 'aloha-button-row-redwhite' }
-				],
-				cellConfig: [
-					{ name: 'table-style-bigbold',  iconClass: 'aloha-button-row-bigbold' },
-					{ name: 'table-style-redwhite', iconClass: 'aloha-button-row-redwhite' }
-				],
-				// allow resizing the table width (default: false)
-				tableResize: true,
-				// allow resizing the column width (default: false)
-				colResize: true,
-				// allow resizing the row height (default: false)
-				rowResize: true
-			},
-			image: {
-				'fixedAspectRatio' : false,
-				'minWidth'         : 20,
-				'minHeight'        : 20,
-				'globalselector'   : '.global',
-				'ui': {
-					'oneTab' : true,
-					'align'  : false,
-					'margin' : false
-				}
-			},
-			cite: {
-				referenceContainer: '#references'
-			},
-			formatlesspaste: {
-				formatlessPasteOption : true,
-				strippedElements : [
-                   "em","strong","small","s","cite","q","dfn","abbr","time","code","var","samp","kbd","sub","sup","i","b","u","mark","ruby","rt","rp","bdi","bdo","ins","del"
-                ]
-            },	
-		}
-	};
-} )( window );
-*/
- 
+$(document).ready(function() {
+    $(".editable").focusout(function() {
+        Save($(this).attr(id));
+    })
+});
+
 function Save(editableId){
     var idInfo = editableId.split("-");
     var id = idInfo[1];
