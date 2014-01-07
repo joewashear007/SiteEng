@@ -6,30 +6,36 @@ class ArticlesController extends AppController {
 
     public function edit($id = null) {
         $this->layout = 'ajax';
-        
+        Debugger::log("The ID: ".$id);
         if (!$id) {
-            $this->set('success', "<strong>FAIL!</strong> The article you tried to save was invalid");
+            $this->set('success', false);
             return; 
-            //throw new NotFoundException(__('Invalid post'));
         }
 
         $Article = $this->Article->findById($id);
+        
         if (!$Article) {
-            $this->set('success', "<strong>FAIL!</strong> The article you tried to save was invalid");
+            Debugger::log("The Article Loaded: NOT ");
+            $this->set('success', false);
             return; 
-            //throw new NotFoundException(__('Invalid post'));
         }
-
-        if ($this->request->is(array('post', 'put'))) {
+        Debugger::log("Request Type: ".$this->request->method());
+        //if ($this->request->is('post') or  $this->request->is('put')) {
+        if (!$this->request->is('get')) {
+            Debugger::log("Request Type: POST OR PUT");
             $this->Article->id = $id;
+            Debugger::log("Article ID: ".$id);
             if ($this->Article->save($this->request->data)) {
-                $this->set('success', "<strong>SUCCES!</strong> All your changes are saved!");
-                $this->Session->setFlash(__('Your post has been updated.'));
+                Debugger::log("Save: Success");
+                $this->set('success', true);
                 return;
-                //return $this->redirect(array('action' => 'index'));
-            }
-            $this->Session->setFlash(__('Unable to update your post.'));
-            $this->set('success', "<strong>FAIL!</strong> Unable to save your article!");
+            }else{
+                Debugger::log("Save: FAIL!");
+                $this->set('success', false);
+            }            
+        }else{
+             Debugger::log("Request Type: must be GET");
+            $this->set('success', false);
         }
     }
     public function delete($id) {

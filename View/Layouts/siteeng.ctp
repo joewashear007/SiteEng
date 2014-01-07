@@ -103,7 +103,7 @@
     
 	?>
     <script type="text/javascript">
-        raptor(function($){
+       /* raptor(function($){
             $('.editable').raptor({
                 plugins:{
                     dock:{docked:true},
@@ -111,7 +111,9 @@
                     snippetMenu:{snippets:{'Grey Box':'<div class="grey-box"><h1>Grey Box</h1><ul><li>This is a list</li></ul></div>'}}
                 }
             });
-        });</script>
+            */
+        //});
+    </script>
 </head>
 <body>
 

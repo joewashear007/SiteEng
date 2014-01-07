@@ -1,3 +1,9 @@
+<div id="msgbox" class="navbar navbar-inverse">
+	<div id="msgbox-text" ></div>
+	<a id="msgbox-close" >X</a>
+</div>
+
+
 <?php 
 $sections = $this->requestAction('sections/index/');
 
@@ -35,10 +41,6 @@ $this->Js->get('#msgbox-close')->event('click', $event);
     
 </div>
 
-<div id="msgbox" class="navbar navbar-inverse">
-	<div id="msgbox-text" ></div>
-	<a id="msgbox-close" >X</a>
-</div>
 
 
 
