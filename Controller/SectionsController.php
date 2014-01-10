@@ -15,8 +15,10 @@ class SectionsController extends AppController {
         Configure::write('SiteEng.Run.Edit', $this->Auth->loggedIn());
         if( $this->Auth->loggedIn()){
             Configure::write('SiteEng.Run.EditClass', Configure::read('SiteEng.Site.EditClass'));
+            Configure::write('debug', false);
         }else{
             Configure::write('SiteEng.Run.EditClass', '');
+            Configure::write('debug', true);
         }
         $this->set('editmode', $this->Auth->loggedIn() );
     }
@@ -29,7 +31,7 @@ class SectionsController extends AppController {
             );
         }
 
-        if ($this->request->is(array('post', 'put'))) {
+        if (!$this->request->is('get')) {
             $this->set('data', $this->request->data);
             Configure::write($this->request->data);
             Configure::dump("SiteEng");

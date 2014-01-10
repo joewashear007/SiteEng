@@ -23,10 +23,10 @@
 	</div> 
 	<div id="TechUsed">
 		<span class="TechUsedItem">Built By:</span>
-		<span class="TechUsedItem"><?php echo $this->Html->link('<p id="SiteEngLogo">SiteEng</p>' ,'https://github.com/joewashear007/SiteEng', array('target' => '_blank', 'escape'=>false));?></span>
+		<span class="TechUsedItem"><?php echo $this->Html->link('<span id="SiteEngLogo">SiteEng</span>' ,'https://github.com/joewashear007/SiteEng', array('target' => '_blank', 'escape'=>false));?></span>
 		<span class="TechUsedItem"><?php echo $this->Html->link($this->Html->image('cake.power.gif'),'http://www.cakephp.org/', array('target' => '_blank','escape'=>false));?></span>
 		<span class="TechUsedItem"><?php echo $this->Html->link($this->Html->image('raptor-avatar.jpg'),'https://www.raptor-editor.com/', array('target' => '_blank','escape'=>false));?></span>
-		<span class="TechUsedItem"><?php echo $this->Html->link('<p id="bootsrapLogo">Bootstrap</p>' ,'http://www.cakephp.org/', array('target' => '_blank','escape'=>false));?></span>
+		<span class="TechUsedItem"><?php echo $this->Html->link('<span id="bootsrapLogo">Bootstrap</span>' ,'http://www.cakephp.org/', array('target' => '_blank','escape'=>false));?></span>
 	</div>
 			
 </div>

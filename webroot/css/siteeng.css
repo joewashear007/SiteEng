@@ -75,8 +75,9 @@
 .SiteInfoItem {
     padding-left: 5px;
     padding-right: 5px;
-    font-size: 1.1em;
+    font-size: 1.2em;
     color: black;
+    font-weight: bold;
     border-right: solid 1px #555;
 }
 
@@ -94,4 +95,24 @@
 
 #TechUsed{
     text-align: center;
+    display: block;
+}
+.TechUsedItem{
+    color: black;
+    height: 20px;
+    display: inline;
+    font-size: 1.1em;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.TechUsedItem:first-child{
+    font-weight: bold;
+}
+.TechUsedItem a{
+    text-decoration:underline;
+    color: black;
+}
+.TechUsedItem img{
+    height: 20px;
+    display: inline;   
 }
