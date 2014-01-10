@@ -6,56 +6,62 @@ class ArticlesController extends AppController {
 
     public function edit($id = null) {
         $this->layout = 'ajax';
-        Debugger::log("The ID: ".$id);
         if (!$id) {
             $this->set('success', false);
             return; 
         }
-
         $Article = $this->Article->findById($id);
-        
         if (!$Article) {
-            Debugger::log("The Article Loaded: NOT ");
             $this->set('success', false);
             return; 
         }
-        Debugger::log("Request Type: ".$this->request->method());
-        //if ($this->request->is('post') or  $this->request->is('put')) {
         if (!$this->request->is('get')) {
-            Debugger::log("Request Type: POST OR PUT");
             $this->Article->id = $id;
-            Debugger::log("Article ID: ".$id);
             if ($this->Article->save($this->request->data)) {
                 Debugger::log("Save: Success");
                 $this->set('success', true);
                 return;
-            }else{
-                Debugger::log("Save: FAIL!");
-                $this->set('success', false);
-            }            
-        }else{
-             Debugger::log("Request Type: must be GET");
-            $this->set('success', false);
+            }         
         }
+        $this->set('success', false);
     }
     public function delete($id) {
-		if ($this->request->is('get')) {
-			$this->set('success', "<strong>FAIL!</strong> The article was not found");
-		}
-
-		if ($this->Article->delete($id)) {
-			$this->set('success', "<strong>SUCCES!</strong> The article was deleted");
-		}
+        $this->layout = "ajax";
+		if (!$this->request->is('get')) {
+			$this->Article->id = $id;
+			Debugger::log("The ID: ".$id);
+			if ($this->Article->delete($id)) {
+				Debugger::log("Delete");
+				$this->set('success', true);
+				// return $this->redirect(
+					// array('controller' => 'sections', 'action' => 'draw', $secId)
+				// );
+			}else{
+				Debugger::log("Failed to Delete: ");
+				$this->set('success', false);
+			}
+        }
 	}
 	public function add($sectionId) {
-        if ($this->request->is('post')) {
+        $this->layout = "ajax";
+        Configure::write('SiteEng.Run.Edit', true);
+        Configure::write('SiteEng.Run.EditClass', Configure::read('SiteEng.Site.EditClass'));
+        Debugger::log("Starting Add");
+        if (!$this->request->is('get')) {
+            Debugger::log("Creating ARTICLE");
             $this->Article->create();
-			$this->Article->set('section-id' , $section-id);
-            if ($this->Article->save($this->request->data)) {
-                $this->set('success', "<strong>SUCCES!</strong> New Article Created");
+            $data = array( 'title' => 'My new article', 'section_id' => $sectionId, 'text' => "Write Some Cool Stuff");
+            if ($this->Article->save($data)) {
+                Debugger::log("Saved Data:".$this->Article->id);
+                $this->set('success', true);
+                $this->set('article', $this->Article->findById($this->Article->id));
+                return;
             }
-            $this->set('success', "<strong>FAIL!</strong> Can't Create Article");
+            Debugger::log("Didn;t Save Data");
+        }else{
+            Debugger::log("Request not post?");
         }
+        $this->set('success', false);
     }
 	
 	

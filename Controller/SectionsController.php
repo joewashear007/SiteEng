@@ -4,7 +4,6 @@ class SectionsController extends AppController {
     public $helpers = array('Html', 'Form', 'Session', 'Js');
     public $components = array('Session', 'Auth');
      
-        
     public function index() { 
         $this->layout = 'siteeng';
         $sec = $this->Section->find('all', array('order' => array('order' => 'asc')));
@@ -40,31 +39,62 @@ class SectionsController extends AppController {
     
 	public function edit($id = null) {
         $this->layout = 'ajax';
-        
         if (!$id) {
-            $this->set('success', "<strong>FAIL!</strong> The section you tried to save was invalid");
+            $this->set('success', false);
             return; 
-            //throw new NotFoundException(__('Invalid post'));
         }
-
         $Section = $this->Section->findById($id);
         if (!$Section) {
-            $this->set('success', "<strong>FAIL!</strong> The section you tried to save was invalid");
+            $this->set('success', false);
             return; 
-            //throw new NotFoundException(__('Invalid post'));
         }
-
-        if ($this->request->is(array('post', 'put'))) {
+        if (!$this->request->is('get')) {
             $this->Section->id = $id;
             if ($this->Section->save($this->request->data)) {
-                $this->set('success', "<strong>SUCCES!</strong> All your changes are saved!");
-                $this->Session->setFlash(__('Your post has been updated.'));
+                $this->set('success', true);
                 return;
-                //return $this->redirect(array('action' => 'index'));
             }
-            $this->Session->setFlash(__('Unable to update your post.'));
-            $this->set('success', "<strong>FAIL!</strong> Unable to save your section!");
         }
+        $this->set('success', false);
+    }
+    
+    public function draw($id) {
+        $this->layout = 'ajax';
+        $Section = $this->Section->findById($id);
+        if (!$Section) {
+            $this->set('success', $Sections);
+            return; 
+        }
+        Configure::write('SiteEng.Run.Edit', true);
+        Configure::write('SiteEng.Run.EditClass', Configure::read('SiteEng.Site.EditClass'));
+        $this->set('editmode', true );
+        $this->set('sections', array($Section));
+        $this->render('index');
+    }
+    
+    public function deleteArticle($id) {
+        $this->layout = 'ajax';
+        Debugger::log("Log Message");
+        if ($this->request->is('post')) {
+            $articleId = $this->passedArgs['articleId'];
+            if($articleId){
+                $this->Section->Article->delete($articleId);
+                $this->set('success', true);
+            
+            }else{
+                Debugger::log("Skipping Article create");
+            }
+        }
+        $Section = $this->Section->findById($id);
+        if (!$Section) {
+            $this->set('success', $Sections);
+            return; 
+        }
+        Configure::write('SiteEng.Run.Edit', true);
+        Configure::write('SiteEng.Run.EditClass', Configure::read('SiteEng.Site.EditClass'));
+        $this->set('editmode', true );
+        $this->set('sections', array($Section));
+        $this->render('index');
     }
 }
 
