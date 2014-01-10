@@ -1,8 +1,5 @@
 <!-- Start Section : Index -->
-<?php
-    if ( $this->params['action'] == "index" ):
-        echo $this->element('MainMenu');
-?>
+<?php if ( $this->params['action'] == "index" ): ?>
 <div id="content">
 <?php endif; ?>
 

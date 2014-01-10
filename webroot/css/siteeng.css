@@ -42,9 +42,20 @@
 }
 
 #msgbox {
+    position: absolute;
+    top: 0px;
+    left: 10%;
+    width: 80%;
+    min-height: 20px;
+    z-index: 100;
     margin: 10px;
     padding: 10px;
-	display: none;
+	display: block;
+}
+#msgbox-text{
+    float: left;
+    font-size: 2em;
+    
 }
 
 #msgbox-close {
@@ -54,4 +65,33 @@
 #SiteEng-Editor{
     margin-left: 10%;
     margin-right: 10%;
+}
+
+#SiteInfo{
+    text-align: center;
+    border-bottom: solid 1px #555;
+    margin: 5px 20px;
+}
+.SiteInfoItem {
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 1.1em;
+    color: black;
+    border-right: solid 1px #555;
+}
+
+.SiteInfoItem a{
+   text-decoration:underline;
+    color: black;
+    
+}
+
+.SiteInfoItem:last-child {
+    border-right: none;
+}
+
+
+
+#TechUsed{
+    text-align: center;
 }

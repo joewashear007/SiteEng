@@ -32,13 +32,6 @@
 		echo $this->Html->meta('icon');
 		echo $this->Html->css('designanddo');
 		echo $this->Html->css('cake.generic');
-        echo $this->Html->css('http://cdn.aloha-editor.org/latest/css/aloha.css');
-
-        echo $this->Html->script('http://cdn.aloha-editor.org/latest/lib/require.js');
-        echo $this->Html->script('http://cdn.aloha-editor.org/latest/lib/vendor/jquery-1.7.2.js');	
-		echo $this->Html->script("http://cdn.aloha-editor.org/latest/lib/aloha.js", 
-                    array("data-aloha-plugins" => "common/ui,common/format,common/list,common/link,common/highlighteditables" )) ;
-        echo $this->Html->script('designanddo');
         
         echo $this->fetch('meta');
 		echo $this->fetch('css');
