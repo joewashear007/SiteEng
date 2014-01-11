@@ -1,46 +1,40 @@
 @charset "utf-8";
-
 .editable {
     box-shadow: 0px 0px 2px 3px rgba(0, 100, 255, 0.7);
 }
-
+/* Navbar Styles */
 .navbar {
     margin-bottom: 0px;
 }
 .navbar-header > a {
-   font-size: 2.5em; 
+   font-size: 4.0em; 
 }
-.navbar-nav {
-   font-size: 2.0em;
-}
-
 .navbar-right {
-   font-size: 1.0em;
+   font-size: 2.0em;
+   padding-right: 40px;
+}
+.navbar-right > li {
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
-.panel-title {
-    font-size: 2.0em;
-}
-
+/* Panel Styles  */
 .panel-title{
-    display: inline-block;
-    
+    display: inline-block;   
 }
 .panel-heading > button{
     float: right;
     display: inline;   
 }
-
 .page-header > h2 {
     display: inline-block;
 }
-
 .page-header > button {
     display: inline-block;
-    float:right;
-    
+    float:right;   
 }
 
+/* MsgBox Style */
 #msgbox {
     position: absolute;
     top: 0px;
@@ -50,23 +44,17 @@
     z-index: 100;
     margin: 10px;
     padding: 10px;
-	display: block;
+	display: none;
 }
 #msgbox-text{
     float: left;
     font-size: 2em;
-    
 }
-
 #msgbox-close {
 	float: right;
 }
 
-#SiteEng-Editor{
-    margin-left: 10%;
-    margin-right: 10%;
-}
-
+/* Footer */
 #SiteInfo{
     text-align: center;
     border-bottom: solid 1px #555;
@@ -80,19 +68,13 @@
     font-weight: bold;
     border-right: solid 1px #555;
 }
-
 .SiteInfoItem a{
    text-decoration:underline;
-    color: black;
-    
+    color: black;   
 }
-
 .SiteInfoItem:last-child {
     border-right: none;
 }
-
-
-
 #TechUsed{
     text-align: center;
     display: block;
@@ -115,4 +97,13 @@
 .TechUsedItem img{
     height: 20px;
     display: inline;   
+}
+
+/* buttons Here */
+.SE-Button{
+    padding: 10px;
+    color: white;
+}
+.SE-Button:hover{
+    color: white;
 }

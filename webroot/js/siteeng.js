@@ -1,6 +1,5 @@
 raptor(function($){
     $('.editable').raptor({
-        //preset : "full
         unloadWarning: false,
         autoEnable : false,
         disabledPlugins: [ 
@@ -10,15 +9,17 @@ raptor(function($){
             dock:{docked:true},
             classMenu:{
                 classes:{
-                    'Blue background':'cms-blue-bg',
-                    'Round corners':'cms-round-corners',
-                    'Indent and center':'cms-indent-center'
+                    'Section-Title':'Section-Title',
+                    'Article-Title':'Article-Title',
+                    'Article-Text':'Article-Text'
                 }
             },
             snippetMenu:{
                 snippets:{
-                    'Grey Box':'<div class="grey-box"><h1>Grey Box</h1><ul><li>This is a list</li></ul></div>'
-                }
+                    'Call Button':  '<a href="tel:'+SiteEng.Phone+'" class="SE-Button"><div class="btn btn-primary"><h1>Call Us</h1></div></a>',
+                    'Email Button': '<a href="mailto:'+SiteEng.Email+'" class="SE-Button"><div class="btn btn-success"><h1>Email Us</h1></div></a>',
+                    //'Map Button':   '<<a href="'+SiteEng.Map+'">div class="btn btn-warning"><h1>Map</h1></div></a>',
+                },
             },
             save: {
                 // Specifies the UI to call the saveRest plugin to do the actual saving
@@ -28,7 +29,10 @@ raptor(function($){
                 // The URI to send the content to
                 url: function(html){
                     var cid = this.raptor.element.context.id.split("-");
-                    return SiteEng.ArticleEdit + "/" + cid[1];
+                    if(cid[0] == "article")
+                        return SiteEng.ArticleEdit + "/" + cid[1];
+                    else
+                        return SiteEng.SectionEdit + "/" + cid[1];
                 },
                 // Returns an object containing the data to send to the server
                 data: function(html) {

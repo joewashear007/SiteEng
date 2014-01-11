@@ -1,10 +1,26 @@
 @font-face  {font-family: atrox;  src: url('../fonts/ATROX.TTF'); font-stretch: extra-expanded;  }
+
+/* Predefined Styles  */
+.Section-Title{
+    font-size: 2.7em;
+    font-family: atrox; 
+    text-decoration: underline;
+}
+.Article-Title{
+    font-size: 2.0em;
+    font-family: atrox; 
+}
+.Article-Text{
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+/* Custom Styles */
 body {
     background-color: grey;
     padding-bottom: 10px;
     color: #001E64;
 }
-
 .navbar {
     font-family:atrox; 
     color: black;
@@ -17,7 +33,6 @@ body {
     background: -ms-linear-gradient(top,  rgba(0,0,50,1) 75%,rgba(0,25,100,1) 100%);
     background: linear-gradient(to bottom,  rgba(0,0,50,1) 75%,rgba(0,25,100,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000032', endColorstr='#001964',GradientType=0 );
-
 }
 .navbar-nav > li > a {
     color: rgb(0,255,100);
@@ -27,9 +42,6 @@ body {
 section{
     padding-top: 20px;
 }
-.panel-title {
-    font-family:atrox; 
-}
 .page-header {
     background-color: rgba(200,200,200, 0.5);
     border: none;
@@ -38,24 +50,16 @@ section{
     margin-left: 20px;
     margin-right: 20px;
 }
-.page-header > h2{
-    font-size: 2.0em;
-    font-family: atrox;
-}
 .panel {
     box-shadow: 5px 5px 5px #333;
-    
 }
+
 /* ------------------------------- SECTIONS --------------------------------- */
 #section-1{
     background-image: url('../img/checker.gif');
     background-repeat:repeat;
     background-position:center;
     background-color: black;
-}
-
-#section-1 > header {
-    display:none;
 }
 
 #section-2{
@@ -79,10 +83,6 @@ section{
     background-position:center;
     background-color: black;
 }
-
-
 #article-6-text > img{
-    width: 100%;
-    
+    width: 100%;   
 }
-

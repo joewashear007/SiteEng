@@ -32,15 +32,17 @@
         //echo $this->Html->script("http://code.jquery.com/ui/1.10.3/jquery-ui.min.js");
         //echo $this->Html->script("jquery-hotkeys");
         echo $this->Html->script('bootstrap.min');
+        //echo $this->Html->script('//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js');
         echo $this->Html->script('raptor.min');
         echo $this->Html->script('siteeng');
         
         //echo $this->Html->css('cake.generic');
         echo $this->Html->css("example-classes");
         echo $this->Html->css("raptor-front-end");
+        //echo $this->Html->css('//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css');
         echo $this->Html->css('bootstrap.min');
         echo $this->Html->css('siteeng');
-        echo $this->Html->css('designanddo');
+        echo $this->Html->css('SE.CustomStyles');
 
         echo $this->fetch('meta');
 		echo $this->fetch('css');
