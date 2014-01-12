@@ -39,6 +39,13 @@ Installtion
 7. Fill out the information about the site and your business, and save
 8. On the main page, edit your content!
 
+
+Other Notes
+---------------------------------
+In the v2.0 Release there is no way to add or remove sections, this is a major issues that will be fix in the next release
+
+
+
 Bugs, Issues, and Other Questions
 -------------------------------------
 SiteEng 2.0 is a major rewrite from the SiteEng 1.x series. So there may be some bugs or incomplete features. You can see what is planned on the GitHub issues list.
