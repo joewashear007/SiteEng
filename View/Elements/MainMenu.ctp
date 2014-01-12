@@ -29,12 +29,12 @@ $this->Js->get('#msgbox-close')->event('click', $event);
         </ul>
         <?php if(Configure::read('SiteEng.Run.Edit') ): ?>
             <ul class="nav navbar-nav navbar-right">
-                <li><?php echo $this->Html->link("", array('controller' => 'users', 'action' => 'logout'), array( "class" => "glyphicon glyphicon-floppy-saved")); ?></li>
-                <li><?php echo $this->Html->link("", array('controller' => 'sections', 'action' => 'editsite'), array( "class" => "glyphicon glyphicon-cog")); ?></li>
+                <li class="navbar-icon"><?php echo $this->Html->link("", array('controller' => 'users', 'action' => 'logout'), array( "class" => "glyphicon glyphicon-floppy-saved")); ?></li>
+                <li class="navbar-icon"><?php echo $this->Html->link("", array('controller' => 'sections', 'action' => 'editsite'), array( "class" => "glyphicon glyphicon-cog")); ?></li>
             </ul>
         <?php else: ?>
             <ul class="nav navbar-nav navbar-right">
-                <li><?php echo $this->Html->link("", array('controller' => 'users', 'action' => 'login'), array( "class" => "glyphicon glyphicon-pencil")); ?></li>
+                <li class="navbar-icon"><?php echo $this->Html->link("", array('controller' => 'users', 'action' => 'login'), array( "class" => "glyphicon glyphicon-pencil")); ?></li>
             </ul>
         <?php endif; ?>
     </div><!--/.nav-collapse -->

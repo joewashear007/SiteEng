@@ -1,19 +1,66 @@
 @font-face  {font-family: atrox;  src: url('../fonts/ATROX.TTF'); font-stretch: extra-expanded;  }
 
+@media (max-width: 991px) {
+    .navbar-header {
+        float: none;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+        margin: 7.5px -15px;
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}
+
+
 /* Predefined Styles  */
-.Section-Title{
-    font-size: 2.7em;
-    font-family: atrox; 
-    text-decoration: underline;
+
+@media(max-width:991px){
+    .Section-Title{
+        font-size: 2.0em;
+        font-family: atrox; 
+        text-decoration: underline;
+    }
+     .Article-Title{
+        font-size: 1.7em;
+        font-family: atrox; 
+    }
+    .Article-Text{
+        font-weight: bold;
+        font-size: 1.2em;
+    }
 }
-.Article-Title{
-    font-size: 2.0em;
-    font-family: atrox; 
+@media(min-width:992px){
+    .Section-Title{
+        font-size: 2.5em;
+        font-family: atrox; 
+        text-decoration: underline;
+    }
+     .Article-Title{
+        font-size: 2.0em;
+        font-family: atrox; 
+    }
+    .Article-Text{
+        font-weight: bold;
+        font-size: 1.3em;
+    }
 }
-.Article-Text{
-    font-weight: bold;
-    font-size: 1.3em;
-}
+
 
 /* Custom Styles */
 body {

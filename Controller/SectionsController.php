@@ -3,6 +3,13 @@
 class SectionsController extends AppController {
     public $helpers = array('Html', 'Form', 'Session', 'Js');
     public $components = array('Session', 'Auth');
+    
+    public function beforeFilter() {
+        parent::beforeFilter();
+        if(!$this->Auth->loggedIn()) {
+            $this->Components->unload('DebugKit.Toolbar');
+        }
+    }
      
     public function index() { 
         $this->layout = 'siteeng';

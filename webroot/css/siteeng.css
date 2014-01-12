@@ -6,17 +6,30 @@
 .navbar {
     margin-bottom: 0px;
 }
-.navbar-header > a {
-   font-size: 4.0em; 
+
+@media(max-width:991px){
+    .navbar-header > a {
+       font-size: 3.0em; 
+    }
+    .navbar-icon {
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 1.5em;
+    }
 }
-.navbar-right {
-   font-size: 2.0em;
-   padding-right: 40px;
+@media(min-width:992px){
+    .navbar-header > a {
+      font-size: 3.5em; 
+    }
+    .navbar-icon {
+        padding-left: 10px;
+        padding-right: 40px;
+        font-size: 2.0em;
+    }
 }
-.navbar-right > li {
-    padding-left: 10px;
-    padding-right: 10px;
-}
+@media(min-width:1200px){}
+
+
 
 /* Panel Styles  */
 .panel-title{
@@ -67,6 +80,7 @@
     color: black;
     font-weight: bold;
     border-right: solid 1px #555;
+    display: inline-block;
 }
 .SiteInfoItem a{
    text-decoration:underline;
@@ -80,6 +94,7 @@
     display: block;
 }
 .TechUsedItem{
+    display: inline-block;
     color: black;
     height: 20px;
     display: inline;
